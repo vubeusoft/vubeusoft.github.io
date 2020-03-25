@@ -1,0 +1,17 @@
+<script>
+    let s=window.location.search;
+    let a=s.substring(1).split('&').reduce((a, s) => {
+        let t=s.split('=').map(decodeURIComponent);
+        a[t[0]]=t[1];
+        return a;
+    }, {});
+    let code=a.code;
+    if (code) {
+        document.write('<h1>');
+        document.write(code);
+        document.write('</h1>');
+    } else {
+        alert('Error!');
+        document.write('<h1>Error!</h1>');
+    }
+</script>
